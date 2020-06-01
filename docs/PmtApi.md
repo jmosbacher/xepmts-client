@@ -12,30 +12,40 @@ Method | HTTP request | Description
 [**post_pmts**](PmtApi.md#post_pmts) | **POST** /Pmts | Stores one or more Pmts.
 [**put_pmt_item**](PmtApi.md#put_pmt_item) | **PUT** /Pmts/{pmtId} | Replaces a Pmt document
 
+
 # **delete_pmt_item**
 > delete_pmt_item(pmt_id, if_match)
 
 Deletes a Pmt document
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.PmtApi(xepmts.ApiClient(configuration))
-pmt_id = 'pmt_id_example' # str | 
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.PmtApi(api_client)
+    pmt_id = 'pmt_id_example' # str | 
 if_match = 'if_match_example' # str | Current value of the _etag field
 
-try:
-    # Deletes a Pmt document
-    api_instance.delete_pmt_item(pmt_id, if_match)
-except ApiException as e:
-    print("Exception when calling PmtApi->delete_pmt_item: %s\n" % e)
+    try:
+        # Deletes a Pmt document
+        api_instance.delete_pmt_item(pmt_id, if_match)
+    except ApiException as e:
+        print("Exception when calling PmtApi->delete_pmt_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -58,6 +68,12 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Pmt document deleted successfully |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_pmts**
@@ -66,22 +82,31 @@ void (empty response body)
 Deletes all Pmts
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.PmtApi(xepmts.ApiClient(configuration))
-
-try:
-    # Deletes all Pmts
-    api_instance.delete_pmts()
-except ApiException as e:
-    print("Exception when calling PmtApi->delete_pmts: %s\n" % e)
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.PmtApi(api_client)
+    
+    try:
+        # Deletes all Pmts
+        api_instance.delete_pmts()
+    except ApiException as e:
+        print("Exception when calling PmtApi->delete_pmts: %s\n" % e)
 ```
 
 ### Parameters
@@ -100,6 +125,12 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | operation has been successful |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pmt_item**
@@ -108,24 +139,33 @@ void (empty response body)
 Retrieves a Pmt document
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.PmtApi(xepmts.ApiClient(configuration))
-pmt_id = 'pmt_id_example' # str | 
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.PmtApi(api_client)
+    pmt_id = 'pmt_id_example' # str | 
 
-try:
-    # Retrieves a Pmt document
-    api_response = api_instance.get_pmt_item(pmt_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PmtApi->get_pmt_item: %s\n" % e)
+    try:
+        # Retrieves a Pmt document
+        api_response = api_instance.get_pmt_item(pmt_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PmtApi->get_pmt_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -147,6 +187,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Pmt document fetched successfully |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pmt_item_by_serial_number**
@@ -155,24 +201,33 @@ Name | Type | Description  | Notes
 Retrieves a Pmt document by serial_number
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.PmtApi(xepmts.ApiClient(configuration))
-serial_number = 'serial_number_example' # str | 
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.PmtApi(api_client)
+    serial_number = 'serial_number_example' # str | 
 
-try:
-    # Retrieves a Pmt document by serial_number
-    api_response = api_instance.get_pmt_item_by_serial_number(serial_number)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PmtApi->get_pmt_item_by_serial_number: %s\n" % e)
+    try:
+        # Retrieves a Pmt document by serial_number
+        api_response = api_instance.get_pmt_item_by_serial_number(serial_number)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PmtApi->get_pmt_item_by_serial_number: %s\n" % e)
 ```
 
 ### Parameters
@@ -194,6 +249,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Pmt document fetched successfully |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pmts**
@@ -202,27 +263,36 @@ Name | Type | Description  | Notes
 Retrieves one or more Pmts
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.PmtApi(xepmts.ApiClient(configuration))
-where = 'where_example' # str | the filters query parameter (ex.: {\"number\": 10}) (optional)
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.PmtApi(api_client)
+    where = 'where_example' # str | the filters query parameter (ex.: {\"number\": 10}) (optional)
 sort = 'sort_example' # str | the sort query parameter (ex.: \"city,-lastname\") (optional)
-page = 56 # int | the pages query parameter (optional)
-max_results = 56 # int | the max results query parameter (optional)
+page = 1 # int | the pages query parameter (optional)
+max_results = 25 # int | the max results query parameter (optional)
 
-try:
-    # Retrieves one or more Pmts
-    api_response = api_instance.get_pmts(where=where, sort=sort, page=page, max_results=max_results)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PmtApi->get_pmts: %s\n" % e)
+    try:
+        # Retrieves one or more Pmts
+        api_response = api_instance.get_pmts(where=where, sort=sort, page=page, max_results=max_results)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PmtApi->get_pmts: %s\n" % e)
 ```
 
 ### Parameters
@@ -247,38 +317,53 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | An array of Pmts |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_pmts**
-> post_pmts(body)
+> post_pmts(pmt)
 
 Stores one or more Pmts.
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.PmtApi(xepmts.ApiClient(configuration))
-body = xepmts.Pmt() # Pmt | A Pmt or list of Pmt documents
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.PmtApi(api_client)
+    pmt = xepmts.Pmt() # Pmt | A Pmt or list of Pmt documents
 
-try:
-    # Stores one or more Pmts.
-    api_instance.post_pmts(body)
-except ApiException as e:
-    print("Exception when calling PmtApi->post_pmts: %s\n" % e)
+    try:
+        # Stores one or more Pmts.
+        api_instance.post_pmts(pmt)
+    except ApiException as e:
+        print("Exception when calling PmtApi->post_pmts: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Pmt**](Pmt.md)| A Pmt or list of Pmt documents | 
+ **pmt** | [**Pmt**](Pmt.md)| A Pmt or list of Pmt documents | 
 
 ### Return type
 
@@ -292,43 +377,58 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | operation has been successful |  -  |
+**0** | An error message |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_pmt_item**
-> put_pmt_item(body, if_match, pmt_id)
+> put_pmt_item(pmt_id, if_match, pmt)
 
 Replaces a Pmt document
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.PmtApi(xepmts.ApiClient(configuration))
-body = xepmts.Pmt() # Pmt | A Pmt or list of Pmt documents
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.PmtApi(api_client)
+    pmt_id = 'pmt_id_example' # str | 
 if_match = 'if_match_example' # str | Current value of the _etag field
-pmt_id = 'pmt_id_example' # str | 
+pmt = xepmts.Pmt() # Pmt | A Pmt or list of Pmt documents
 
-try:
-    # Replaces a Pmt document
-    api_instance.put_pmt_item(body, if_match, pmt_id)
-except ApiException as e:
-    print("Exception when calling PmtApi->put_pmt_item: %s\n" % e)
+    try:
+        # Replaces a Pmt document
+        api_instance.put_pmt_item(pmt_id, if_match, pmt)
+    except ApiException as e:
+        print("Exception when calling PmtApi->put_pmt_item: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Pmt**](Pmt.md)| A Pmt or list of Pmt documents | 
- **if_match** | **str**| Current value of the _etag field | 
  **pmt_id** | **str**|  | 
+ **if_match** | **str**| Current value of the _etag field | 
+ **pmt** | [**Pmt**](Pmt.md)| A Pmt or list of Pmt documents | 
 
 ### Return type
 
@@ -342,6 +442,12 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Pmt document replaced successfully |  -  |
+**0** | An error message |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

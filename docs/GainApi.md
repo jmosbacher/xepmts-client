@@ -11,30 +11,40 @@ Method | HTTP request | Description
 [**post_gains**](GainApi.md#post_gains) | **POST** /Gains | Stores one or more Gains.
 [**put_gain_item**](GainApi.md#put_gain_item) | **PUT** /Gains/{gainId} | Replaces a Gain document
 
+
 # **delete_gain_item**
 > delete_gain_item(gain_id, if_match)
 
 Deletes a Gain document
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.GainApi(xepmts.ApiClient(configuration))
-gain_id = 'gain_id_example' # str | 
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.GainApi(api_client)
+    gain_id = 'gain_id_example' # str | 
 if_match = 'if_match_example' # str | Current value of the _etag field
 
-try:
-    # Deletes a Gain document
-    api_instance.delete_gain_item(gain_id, if_match)
-except ApiException as e:
-    print("Exception when calling GainApi->delete_gain_item: %s\n" % e)
+    try:
+        # Deletes a Gain document
+        api_instance.delete_gain_item(gain_id, if_match)
+    except ApiException as e:
+        print("Exception when calling GainApi->delete_gain_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -57,6 +67,12 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Gain document deleted successfully |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_gains**
@@ -65,22 +81,31 @@ void (empty response body)
 Deletes all Gains
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.GainApi(xepmts.ApiClient(configuration))
-
-try:
-    # Deletes all Gains
-    api_instance.delete_gains()
-except ApiException as e:
-    print("Exception when calling GainApi->delete_gains: %s\n" % e)
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.GainApi(api_client)
+    
+    try:
+        # Deletes all Gains
+        api_instance.delete_gains()
+    except ApiException as e:
+        print("Exception when calling GainApi->delete_gains: %s\n" % e)
 ```
 
 ### Parameters
@@ -99,6 +124,12 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | operation has been successful |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gain_item**
@@ -107,24 +138,33 @@ void (empty response body)
 Retrieves a Gain document
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.GainApi(xepmts.ApiClient(configuration))
-gain_id = 'gain_id_example' # str | 
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.GainApi(api_client)
+    gain_id = 'gain_id_example' # str | 
 
-try:
-    # Retrieves a Gain document
-    api_response = api_instance.get_gain_item(gain_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling GainApi->get_gain_item: %s\n" % e)
+    try:
+        # Retrieves a Gain document
+        api_response = api_instance.get_gain_item(gain_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GainApi->get_gain_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -146,6 +186,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Gain document fetched successfully |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gains**
@@ -154,27 +200,36 @@ Name | Type | Description  | Notes
 Retrieves one or more Gains
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.GainApi(xepmts.ApiClient(configuration))
-where = 'where_example' # str | the filters query parameter (ex.: {\"number\": 10}) (optional)
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.GainApi(api_client)
+    where = 'where_example' # str | the filters query parameter (ex.: {\"number\": 10}) (optional)
 sort = 'sort_example' # str | the sort query parameter (ex.: \"city,-lastname\") (optional)
-page = 56 # int | the pages query parameter (optional)
-max_results = 56 # int | the max results query parameter (optional)
+page = 1 # int | the pages query parameter (optional)
+max_results = 25 # int | the max results query parameter (optional)
 
-try:
-    # Retrieves one or more Gains
-    api_response = api_instance.get_gains(where=where, sort=sort, page=page, max_results=max_results)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling GainApi->get_gains: %s\n" % e)
+    try:
+        # Retrieves one or more Gains
+        api_response = api_instance.get_gains(where=where, sort=sort, page=page, max_results=max_results)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GainApi->get_gains: %s\n" % e)
 ```
 
 ### Parameters
@@ -199,38 +254,53 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | An array of Gains |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_gains**
-> post_gains(body)
+> post_gains(gain)
 
 Stores one or more Gains.
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.GainApi(xepmts.ApiClient(configuration))
-body = xepmts.Gain() # Gain | A Gain or list of Gain documents
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.GainApi(api_client)
+    gain = xepmts.Gain() # Gain | A Gain or list of Gain documents
 
-try:
-    # Stores one or more Gains.
-    api_instance.post_gains(body)
-except ApiException as e:
-    print("Exception when calling GainApi->post_gains: %s\n" % e)
+    try:
+        # Stores one or more Gains.
+        api_instance.post_gains(gain)
+    except ApiException as e:
+        print("Exception when calling GainApi->post_gains: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Gain**](Gain.md)| A Gain or list of Gain documents | 
+ **gain** | [**Gain**](Gain.md)| A Gain or list of Gain documents | 
 
 ### Return type
 
@@ -244,43 +314,58 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | operation has been successful |  -  |
+**0** | An error message |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_gain_item**
-> put_gain_item(body, if_match, gain_id)
+> put_gain_item(gain_id, if_match, gain)
 
 Replaces a Gain document
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.GainApi(xepmts.ApiClient(configuration))
-body = xepmts.Gain() # Gain | A Gain or list of Gain documents
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.GainApi(api_client)
+    gain_id = 'gain_id_example' # str | 
 if_match = 'if_match_example' # str | Current value of the _etag field
-gain_id = 'gain_id_example' # str | 
+gain = xepmts.Gain() # Gain | A Gain or list of Gain documents
 
-try:
-    # Replaces a Gain document
-    api_instance.put_gain_item(body, if_match, gain_id)
-except ApiException as e:
-    print("Exception when calling GainApi->put_gain_item: %s\n" % e)
+    try:
+        # Replaces a Gain document
+        api_instance.put_gain_item(gain_id, if_match, gain)
+    except ApiException as e:
+        print("Exception when calling GainApi->put_gain_item: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Gain**](Gain.md)| A Gain or list of Gain documents | 
- **if_match** | **str**| Current value of the _etag field | 
  **gain_id** | **str**|  | 
+ **if_match** | **str**| Current value of the _etag field | 
+ **gain** | [**Gain**](Gain.md)| A Gain or list of Gain documents | 
 
 ### Return type
 
@@ -294,6 +379,12 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Gain document replaced successfully |  -  |
+**0** | An error message |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

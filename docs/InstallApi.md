@@ -12,30 +12,40 @@ Method | HTTP request | Description
 [**post_installs**](InstallApi.md#post_installs) | **POST** /Installs | Stores one or more Installs.
 [**put_install_item**](InstallApi.md#put_install_item) | **PUT** /Installs/{installId} | Replaces a Install document
 
+
 # **delete_install_item**
 > delete_install_item(install_id, if_match)
 
 Deletes a Install document
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.InstallApi(xepmts.ApiClient(configuration))
-install_id = 'install_id_example' # str | 
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.InstallApi(api_client)
+    install_id = 'install_id_example' # str | 
 if_match = 'if_match_example' # str | Current value of the _etag field
 
-try:
-    # Deletes a Install document
-    api_instance.delete_install_item(install_id, if_match)
-except ApiException as e:
-    print("Exception when calling InstallApi->delete_install_item: %s\n" % e)
+    try:
+        # Deletes a Install document
+        api_instance.delete_install_item(install_id, if_match)
+    except ApiException as e:
+        print("Exception when calling InstallApi->delete_install_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -58,6 +68,12 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Install document deleted successfully |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_installs**
@@ -66,22 +82,31 @@ void (empty response body)
 Deletes all Installs
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.InstallApi(xepmts.ApiClient(configuration))
-
-try:
-    # Deletes all Installs
-    api_instance.delete_installs()
-except ApiException as e:
-    print("Exception when calling InstallApi->delete_installs: %s\n" % e)
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.InstallApi(api_client)
+    
+    try:
+        # Deletes all Installs
+        api_instance.delete_installs()
+    except ApiException as e:
+        print("Exception when calling InstallApi->delete_installs: %s\n" % e)
 ```
 
 ### Parameters
@@ -100,6 +125,12 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | operation has been successful |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_install_item**
@@ -108,24 +139,33 @@ void (empty response body)
 Retrieves a Install document
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.InstallApi(xepmts.ApiClient(configuration))
-install_id = 'install_id_example' # str | 
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.InstallApi(api_client)
+    install_id = 'install_id_example' # str | 
 
-try:
-    # Retrieves a Install document
-    api_response = api_instance.get_install_item(install_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling InstallApi->get_install_item: %s\n" % e)
+    try:
+        # Retrieves a Install document
+        api_response = api_instance.get_install_item(install_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InstallApi->get_install_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -147,6 +187,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Install document fetched successfully |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_install_item_by_uid**
@@ -155,24 +201,33 @@ Name | Type | Description  | Notes
 Retrieves a Install document by uid
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.InstallApi(xepmts.ApiClient(configuration))
-uid = 'uid_example' # str | 
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.InstallApi(api_client)
+    uid = 'uid_example' # str | 
 
-try:
-    # Retrieves a Install document by uid
-    api_response = api_instance.get_install_item_by_uid(uid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling InstallApi->get_install_item_by_uid: %s\n" % e)
+    try:
+        # Retrieves a Install document by uid
+        api_response = api_instance.get_install_item_by_uid(uid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InstallApi->get_install_item_by_uid: %s\n" % e)
 ```
 
 ### Parameters
@@ -194,6 +249,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Install document fetched successfully |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_installs**
@@ -202,27 +263,36 @@ Name | Type | Description  | Notes
 Retrieves one or more Installs
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.InstallApi(xepmts.ApiClient(configuration))
-where = 'where_example' # str | the filters query parameter (ex.: {\"number\": 10}) (optional)
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.InstallApi(api_client)
+    where = 'where_example' # str | the filters query parameter (ex.: {\"number\": 10}) (optional)
 sort = 'sort_example' # str | the sort query parameter (ex.: \"city,-lastname\") (optional)
-page = 56 # int | the pages query parameter (optional)
-max_results = 56 # int | the max results query parameter (optional)
+page = 1 # int | the pages query parameter (optional)
+max_results = 25 # int | the max results query parameter (optional)
 
-try:
-    # Retrieves one or more Installs
-    api_response = api_instance.get_installs(where=where, sort=sort, page=page, max_results=max_results)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling InstallApi->get_installs: %s\n" % e)
+    try:
+        # Retrieves one or more Installs
+        api_response = api_instance.get_installs(where=where, sort=sort, page=page, max_results=max_results)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling InstallApi->get_installs: %s\n" % e)
 ```
 
 ### Parameters
@@ -247,38 +317,53 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | An array of Installs |  -  |
+**0** | An error message |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_installs**
-> post_installs(body)
+> post_installs(install)
 
 Stores one or more Installs.
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.InstallApi(xepmts.ApiClient(configuration))
-body = xepmts.Install() # Install | A Install or list of Install documents
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.InstallApi(api_client)
+    install = xepmts.Install() # Install | A Install or list of Install documents
 
-try:
-    # Stores one or more Installs.
-    api_instance.post_installs(body)
-except ApiException as e:
-    print("Exception when calling InstallApi->post_installs: %s\n" % e)
+    try:
+        # Stores one or more Installs.
+        api_instance.post_installs(install)
+    except ApiException as e:
+        print("Exception when calling InstallApi->post_installs: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Install**](Install.md)| A Install or list of Install documents | 
+ **install** | [**Install**](Install.md)| A Install or list of Install documents | 
 
 ### Return type
 
@@ -292,43 +377,58 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | operation has been successful |  -  |
+**0** | An error message |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_install_item**
-> put_install_item(body, if_match, install_id)
+> put_install_item(install_id, if_match, install)
 
 Replaces a Install document
 
 ### Example
+
+* Bearer Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
 import xepmts
 from xepmts.rest import ApiException
 from pprint import pprint
+configuration = xepmts.Configuration()
+# Configure Bearer authorization: BearerAuth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
+# Defining host is optional and default to https://api.xepmts.yossisprojects.com/v1
+configuration.host = "https://api.xepmts.yossisprojects.com/v1"
 
-# create an instance of the API class
-api_instance = xepmts.InstallApi(xepmts.ApiClient(configuration))
-body = xepmts.Install() # Install | A Install or list of Install documents
+# Enter a context with an instance of the API client
+with xepmts.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = xepmts.InstallApi(api_client)
+    install_id = 'install_id_example' # str | 
 if_match = 'if_match_example' # str | Current value of the _etag field
-install_id = 'install_id_example' # str | 
+install = xepmts.Install() # Install | A Install or list of Install documents
 
-try:
-    # Replaces a Install document
-    api_instance.put_install_item(body, if_match, install_id)
-except ApiException as e:
-    print("Exception when calling InstallApi->put_install_item: %s\n" % e)
+    try:
+        # Replaces a Install document
+        api_instance.put_install_item(install_id, if_match, install)
+    except ApiException as e:
+        print("Exception when calling InstallApi->put_install_item: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Install**](Install.md)| A Install or list of Install documents | 
- **if_match** | **str**| Current value of the _etag field | 
  **install_id** | **str**|  | 
+ **if_match** | **str**| Current value of the _etag field | 
+ **install** | [**Install**](Install.md)| A Install or list of Install documents | 
 
 ### Return type
 
@@ -342,6 +442,12 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Install document replaced successfully |  -  |
+**0** | An error message |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
